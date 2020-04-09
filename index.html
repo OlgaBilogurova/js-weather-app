@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main content -->
+    <div class="main-wrapper">
+        <div class="container">
+            <div></div>
+            <h1 id="w-location"></h1>
+            <h3 id="w-desc" class="text-dark"></h3>
+            <h3 id="w-string"></h3>
+            <img id="w-icon">
+            <ul id="w-details" class="list-group">
+                <li class="list-group-item" id="w-humidity"></li>
+                <li class="list-group-item" id="w-dewpoint"></li>
+                <li class="list-group-item" id="w-feels-like"></li>
+                <li class="list-group-item" id="w-wind"></li>
+            </ul>
+
+            <button type="button" id="w-modal-btn" class="btn btn-primary">Change Location</button>
+        </div>
+    </div>
+    <!-- End Main content -->
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Choose location</h5>
+                <button type="button" class="close-btn">
+                    <span>&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="w-form">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" class="form-control">
+                    </div>
+                </form>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary">Close</button>
+                <button type="button" id="w-change-btn" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Scripts -->
+    <script src="storage.js"></script>
+    <script src="weather.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+    <!-- End Scripts -->
+</body>
+</html>
