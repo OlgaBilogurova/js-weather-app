@@ -1,6 +1,24 @@
+// Init weather object
+const weather = new Weather('Santa Clara', 'CA');
+const ui = new UI();
 
-let modal = document.getElementById('modal');
-let modalBtn = document.getElementById('w-modal-btn');
+// Vars
+const modal = document.getElementById('modal');
+const modalBtn = document.getElementById('w-modal-btn');
+
+// weather.changeLocation('Miami', 'FL');
+
+// Get weather on DOM load
+document.addEventListener('DOMContentLoaded', getWeather);
+
+function getWeather() {
+    weather.getWeather()
+        .then(results => {
+            console.log(results);
+            ui.paint(results);
+        })
+        .catch(error => console.log(error));
+}
 
 // Hide modal
 modal.style.display = "none";
