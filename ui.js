@@ -31,7 +31,7 @@ class UI{
         this.desc.textContent = weather.weather.description;
         this.string.textContent = `${weather.temp} °C, ${temp_fahr} °F`;
         this.icon.setAttribute('src', `icons/${weather.weather.icon}.png`);
-        this.humidity.textContent = `Relative humidity: ${weather.rh}, %`;
+        this.humidity.textContent = `Relative humidity: ${weather.rh} %`;
         this.feelslike.textContent = `Feels Like temperature: ${weather.app_temp} °C, ${feels_temp_fahr} °F`;
         this.dewpoint.textContent = `Dewpoint: ${weather.dewpt} °C, ${dewpoint_fahr} °F`;
         this.wind.textContent = `Wind direction: ${weather.wind_cdir_full}, speed: ${weather.wind_spd}`;

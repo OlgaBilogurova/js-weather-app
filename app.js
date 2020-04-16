@@ -4,27 +4,47 @@ const ui = new UI();
 
 // Vars
 const modal = document.getElementById('modal');
-const modalBtn = document.getElementById('w-modal-btn');
 
-// weather.changeLocation('Miami', 'FL');
+// Hide modal when the page loaded
+modal.style.display = "none";
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
 
+// Get weather and show data
 function getWeather() {
     weather.getWeather()
         .then(results => {
-            console.log(results);
+            //console.log(results);
             ui.hidePreloader();
             ui.paint(results);
         })
         .catch(error => console.log(error));
 }
 
-// Hide modal
-modal.style.display = "none";
-
-// Show/Hide modal
-modalBtn.addEventListener('click', function (e) {
-    modal.style.display === "none" ? modal.style.display = "block" : modal.style.display = "none";
+// Show modal
+document.getElementById('w-modal-btn').addEventListener('click', (e) => {
+    toggleModal();
 });
+
+// Close modal
+document.getElementById('w-close-btn').addEventListener('click', e => {
+    toggleModal();
+});
+
+// Change location event
+document.getElementById('w-change-btn').addEventListener('click', e => {
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+
+    weather.changeLocation(city, state);
+    // Get and display weather
+    getWeather();
+    // Close the modal
+    toggleModal();
+});
+
+// Show/hide modal
+function toggleModal() {
+    modal.style.display === 'none' ? modal.style.display = 'block' : modal.style.display = 'none';
+}
