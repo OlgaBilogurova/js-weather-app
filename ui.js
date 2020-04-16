@@ -1,5 +1,8 @@
 class UI{
     constructor() {
+        this.preloader = document.getElementById('preloader');
+        this.maincontent = document.getElementById('main-content');
+
         this.location = document.getElementById('w-location');
         this.desc = document.getElementById('w-desc');
         this.string = document.getElementById('w-string');
@@ -9,6 +12,13 @@ class UI{
         this.dewpoint = document.getElementById('w-dewpoint');
         this.feelslike = document.getElementById('w-feels-like');
         this.wind = document.getElementById('w-wind');
+    }
+
+    hidePreloader(){
+        // Hide preloader
+        this.preloader.style.display = 'none';
+        // Show main content
+        this.maincontent.style.display = 'block';
     }
 
     paint(weather) {
