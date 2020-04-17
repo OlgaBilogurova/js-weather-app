@@ -29,16 +29,16 @@ class UI{
 
         this.location.textContent = weather.city_name + ', ' + weather.state_code;
         this.desc.textContent = weather.weather.description;
-        this.string.textContent = `${weather.temp} °C, ${temp_fahr} °F`;
+        this.string.textContent = `${weather.temp}°C, ${temp_fahr}°F`;
         this.icon.setAttribute('src', `icons/${weather.weather.icon}.png`);
-        this.humidity.textContent = `Relative humidity: ${weather.rh} %`;
-        this.feelslike.textContent = `Feels Like temperature: ${weather.app_temp} °C, ${feels_temp_fahr} °F`;
-        this.dewpoint.textContent = `Dewpoint: ${weather.dewpt} °C, ${dewpoint_fahr} °F`;
-        this.wind.textContent = `Wind direction: ${weather.wind_cdir_full}, speed: ${weather.wind_spd}`;
+        this.humidity.textContent = `Humidity: ${weather.rh}%`;
+        this.feelslike.textContent = `Feels Like: ${weather.app_temp}°C, ${feels_temp_fahr}°F`;
+        this.dewpoint.textContent = `Dewpoint: ${weather.dewpt}°C, ${dewpoint_fahr}°F`;
+        this.wind.textContent = `Wind: ${weather.wind_cdir_full}, ${weather.wind_spd} mph`;
     }
 }
 
 // Convert Celsius to Fahrenheit
 function convertCToFahr(c){
-    return (c * 9/5) + 32;
+    return Math.floor(c * 9/5) + 32;
 }

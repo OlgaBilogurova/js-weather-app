@@ -8,7 +8,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 450px;
+    width: 380px;
     height: auto;
   }
 }
@@ -22,9 +22,10 @@
   background-color: #5f90ea;
   color: white;
   position: absolute;
-  top: 30%;
+  top: 45%;
   left: 50%;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
 }
 
 .container{
@@ -36,7 +37,7 @@
   color: #2c2c2c;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4{
   margin: 5px 0;
 }
 
@@ -46,6 +47,10 @@ h1{
 
 h3{
   font-size: 22px;
+}
+
+h4{
+  font-size: 20px;
 }
 
 .w-icon{
@@ -89,9 +94,9 @@ h3{
   font-weight: bold;
   transition: .2s ease;
   &.btn-primary{
-    background-color: #2c2c2c;
-    border: 2px solid #2c2c2c;
-    color: white;
+    color: #5f90ea;
+    border-color: #3d6cc3;
+    background-color: white;
   }
   &.btn-secondary{
     color: #5f90ea;
@@ -104,9 +109,9 @@ h3{
     }
   }
   &:hover{
-    color: #5f90ea;
-    border-color: #5f90ea;
-    background-color: white;
+    background-color: #2c2c2c;
+    border-color: #2c2c2c;
+    color: white;
   }
   &:focus{
     outline: none;
@@ -118,7 +123,7 @@ h3{
   display: block;
   z-index: 1;
   position: absolute;
-  top: 39%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: auto;
@@ -126,6 +131,7 @@ h3{
   max-width: 600px;
   width: 100%;
   border: 1px solid lightgray;
+  border-radius: 5px;
 
   .modal-content{
     padding: 80px 15px;
@@ -180,7 +186,7 @@ h3{
       color: gray;
       &:hover{
         border-color: #2c2c2c;
-        color: #2c2c2c;
+        color: white;
       }
     }
   }
