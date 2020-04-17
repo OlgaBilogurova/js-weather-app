@@ -1,5 +1,9 @@
+// Init storage object
+const storage = new StorageData();
+// Get stored location data
+const weatherLocation = storage.getLocation();
 // Init weather object
-const weather = new Weather('Santa Clara', 'CA');
+const weather = new Weather(weatherLocation.city, weatherLocation.state);
 const ui = new UI();
 
 // Vars
@@ -15,9 +19,11 @@ document.addEventListener('DOMContentLoaded', getWeather);
 function getWeather() {
     weather.getWeather()
         .then(results => {
-            //console.log(results);
             ui.hidePreloader();
+            // Display data in UI
             ui.paint(results);
+            // Store location in LS
+            storage.setLocation(weather.city, weather.state);
         })
         .catch(error => console.log(error));
 }
@@ -37,9 +43,12 @@ document.getElementById('w-change-btn').addEventListener('click', e => {
     const city = document.getElementById('city').value;
     const state = document.getElementById('state').value;
 
-    weather.changeLocation(city, state);
-    // Get and display weather
-    getWeather();
+    if (city !== '' && state !== '') {
+        // Change location
+        weather.changeLocation(city, state);
+        // Get and display weather
+        getWeather();
+    }
     // Close the modal
     toggleModal();
 });
