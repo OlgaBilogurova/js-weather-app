@@ -24,13 +24,20 @@ function getWeather() {
             ui.paint(results);
             // Store location in LS
             storage.setLocation(weather.city, weather.state);
+            // Close the modal if it's open
+            if (modal.style.display === 'block') toggleModal();
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error);
+            ui.showMessage('Please, check the city and state. Information not found.');
+        });
 }
 
 // Show modal
 document.getElementById('w-modal-btn').addEventListener('click', (e) => {
     toggleModal();
+    // fill select with US states
+    ui.fillStateSelect();
 });
 
 // Close modal
@@ -43,17 +50,18 @@ document.getElementById('w-change-btn').addEventListener('click', e => {
     const city = document.getElementById('city').value;
     const state = document.getElementById('state').value;
 
-    if (city !== '' && state !== '') {
+    if (city !== '') {
         // Change location
         weather.changeLocation(city, state);
         // Get and display weather
         getWeather();
+    } else {
+        ui.showMessage('Please, enter the city');
     }
-    // Close the modal
-    toggleModal();
 });
 
 // Show/hide modal
 function toggleModal() {
     modal.style.display === 'none' ? modal.style.display = 'block' : modal.style.display = 'none';
+    ui.removeMessage();
 }

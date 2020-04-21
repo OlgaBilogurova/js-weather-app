@@ -162,7 +162,8 @@ h4{
           margin-bottom: 5px;
         }
         .form-control{
-          width: 97%;
+          width: 100%;
+          box-sizing: border-box;
           margin: 0 auto;
           padding: 7px 5px;
           border-radius: 3px;
@@ -175,9 +176,18 @@ h4{
     }
 
     .modal-footer{
-      justify-content: center;
+      text-align: center;
       .btn{
-        margin: 0;
+        margin: 0 auto;
+      }
+      .message-box{
+        border-radius: 5px;
+        margin: 10px 0;
+        background-color: mistyrose;
+        line-height: 40px;
+        &.error{
+          background-color: mistyrose;
+        }
       }
     }
 
